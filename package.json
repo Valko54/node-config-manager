@@ -1,5 +1,5 @@
 {
-    "name": "config-manager",
+    "name": "node-config-manager",
     "version": "0.0.1",
     "description": "A configuration manager for NodeJS. It helps you to organize your project and the different configurations of your environments.",
     "author": "Damien Picard <d.picard54@gmail.com> (https://github.com/valko54)",

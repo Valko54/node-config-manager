@@ -4,7 +4,7 @@ A configuration manager for NodeJS. It helps you to organize your project and th
 
 ## Installation
 ```
-npm install --save config-manager
+npm install --save node-config-manager
 ```
 
 ## Usage
@@ -54,7 +54,7 @@ NODE_CAMEL_CASE | Boolean | false | Naming convention of variables
 
 If you don't like to configure with environment variables, you can initialize the different variables in JavaScript by using prototype init method.
 ```js
-var cfgManager = require('config-manager'),
+var cfgManager = require('node-config-manager'),
     options = {
 		configDir: './config',
 		env: 'test',
@@ -82,7 +82,7 @@ config/
 ```
 
 ```javascript
-var cfgManager = require('config-manager');
+var cfgManager = require('node-config-manager');
 
 cfgManager.addConfig('db') //Load config/test/db.json
 		  .addConfig('logger'); // Load config/logger.js
