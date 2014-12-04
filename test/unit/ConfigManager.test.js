@@ -239,7 +239,7 @@ describe('ConfigManager', function() {
                 },
                 fullContentMock = {
                     content: 'mock',
-                    with_color: 'true',
+                    with_color: true,
                     override: true,
                     pros: {
                         ok: true,

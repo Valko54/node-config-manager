@@ -74,25 +74,42 @@ describe('Parser.Parameter', function() {
                             level_two_one: {
                                 level_three_one: 'test'
                             },
-                            level_two_two: 'false'
-                        }
-                    }
+                            level_two_two: false
+                        },
+                        level_one_two: false
+                    },
+                    main_three: 400,
+                    main_four: 12.40,
+                    main_five: '127.0.0.1'
                 },
                 json = {
                     'MAIN_ONE__LEVEL_ONE_ONE__LEVEL_TWO_ONE': false,
                     'MAIN_ONE__LEVEL_ONE_TWO__LEVEL_TWO_ONE': true,
                     'MAIN_ONE__LEVEL_ONE_TWO__LEVEL_TWO_TWO': '${ENV__TEST}',
                     'MAIN_TWO__LEVEL_ONE_ONE__LEVEL_TWO_ONE__LEVEL_THREE_ONE': '${ENV__TEST__SECOND}',
-                    'MAIN_TWO__LEVEL_ONE_ONE__LEVEL_TWO_TWO': 'false'
+                    'MAIN_TWO__LEVEL_ONE_ONE__LEVEL_TWO_TWO': 'false',
+                    'MAIN_TWO__LEVEL_ONE_TWO': '${ENV__TEST__BOOLEAN_SECOND}',
+                    'MAIN_THREE': '${ENV__TEST__NUMBER}',
+                    'MAIN_FOUR': '${ENV__TEST__FLOAT}',
+                    'MAIN_FIVE': '${ENV__TEST__IP}'
                 };
 
             process.env.ENV__TEST = 'test';
             process.env.ENV__TEST__SECOND = '${ENV__TEST}';
+            process.env.ENV__TEST__BOOLEAN = 'false';
+            process.env.ENV__TEST__BOOLEAN_SECOND = '${ENV__TEST__BOOLEAN}';
+            process.env.ENV__TEST__NUMBER = '400';
+            process.env.ENV__TEST__FLOAT = '12.40';
+            process.env.ENV__TEST__IP = '127.0.0.1';
 
             expect(parserParameter.parse(json)).to.deep.equal(res);
 
             delete process.env.ENV__TEST;
             delete process.env.ENV__TEST__SECOND;
+            delete process.env.ENV__TEST__BOOLEAN;
+            delete process.env.ENV__TEST__BOOLEAN_SECOND;
+            delete process.env.ENV__TEST__NUMBER;
+            delete process.env.ENV__TEST__FLOAT;
         });
         it('should return null when parameter is not an object', function() {
             var string = '{main_one: true,main_two: false}';
