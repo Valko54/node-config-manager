@@ -1,4 +1,4 @@
-# Config manager [![Build Status](https://secure.travis-ci.org/valko54/config-manager.png?branch=master)](http://travis-ci.org/valko54/config-manager)
+# Config manager [![Build Status](https://travis-ci.org/Valko54/node-config-manager.svg)](https://travis-ci.org/Valko54/node-config-manager)
 
 A configuration manager for NodeJS. It helps you to organize your project and the different configurations of your environments. 
 
