@@ -1,0 +1,10 @@
+{
+	"console": {
+		"level": "silly",
+		"colorize": "true",
+		"label": "category one"
+	},
+	"file": {
+		"filename": "/path/to/some/file"
+	}
+}

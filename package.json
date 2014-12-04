@@ -1,0 +1,43 @@
+{
+    "name": "config-manager",
+    "version": "0.0.1",
+    "description": "A configuration manager for NodeJS. It helps you to organize your project and the different configurations of your environments.",
+    "author": "Damien Picard <d.picard54@gmail.com> (https://github.com/valko54)",
+    "contributors": [{
+        "name": "Laurine Schuster",
+        "email": "laurine.schuster@gmail.com",
+        "url": "https://github.com/lsr57"
+    }, {
+        "name": "Antoine Detante",
+        "email": "antoine.detante@gmail.com",
+        "url": "https://github.com/adetante"
+    }],
+    "scripts": {
+        "pretest": "./node_modules/jshint/bin/jshint .",
+        "test": "NODE_ENV='test' ./node_modules/mocha/bin/mocha  --reporter spec test/unit test/integration"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Valko54/node-config-manager"
+    },
+    "bugs": {
+        "url": "https://github.com/Valko54/node-config-manager/issues"
+    },
+    "keywords": [
+        "util",
+        "config",
+        "environment",
+        "manager"
+    ],
+    "dependencies": {
+        "debug": "^2.1.0"
+    },
+    "devDependencies": {
+        "chai": "*",
+        "mocha": "*",
+        "jshint": "~2.5.10",
+        "rewire": "~2.1.3"
+    },
+    "license": "MIT"
+}
