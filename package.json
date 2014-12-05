@@ -14,7 +14,8 @@
     }],
     "scripts": {
         "pretest": "./node_modules/jshint/bin/jshint .",
-        "test": "NODE_ENV='test' ./node_modules/mocha/bin/mocha  --reporter spec test/unit test/integration"
+        "test": "NODE_ENV='test' ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test",
+        "test-on-travis": "NODE_ENV='test' ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
     },
     "main": "index.js",
     "repository": {
@@ -34,8 +35,11 @@
         "debug": "^2.1.0"
     },
     "devDependencies": {
-        "chai": "*",
-        "mocha": "*",
+        "coveralls": "^2.11.2",
+        "chai": "^1.10.0",
+        "mocha": "^1.21.4",
+        "mocha-lcov-reporter": "0.0.1",
+        "istanbul": "^0.3.2",
         "jshint": "~2.5.10",
         "rewire": "~2.1.3"
     },
