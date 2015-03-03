@@ -1,3 +1,9 @@
+1.0.0 / 2015-03-03
+==================
+
+  * Add default value from file system (ISSUE-#1)
+  * Stable version 1.0.0
+
 0.0.4 / 2014-12-05
 ==================
 
