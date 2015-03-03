@@ -1,6 +1,7 @@
 'use strict';
 
-var expect = require('chai').expect;
+var expect = require('chai').expect,
+    assert = require('chai').assert;
 
 var parserParameter = require('../../lib/parser/parameter');
 
@@ -31,7 +32,7 @@ describe('Parser.Parameter', function() {
     });
     describe('#parse', function() {
         it('should return null when parameter is not an object', function() {
-            expect(parserParameter.parse('string')).to.be.null();
+            assert.isNull(parserParameter.parse('string'));
         });
         it('should return camelCase JSON', function() {
             var res = {

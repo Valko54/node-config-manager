@@ -1,6 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect,
+    assert = require('chai').assert,
     path = require('path');
 
 var CONFIG_DIR = 'config/',
@@ -21,7 +22,7 @@ describe('ConfigManager', function() {
 
     describe('#new', function() {
         it('should return a ConfigManager instance', function() {
-            expect(configManager).not.to.be.null();
+            assert.isNotNull(configManager);
 
             expect(configManager.store).to.be.a('object');
             expect(configManager.method).to.be.a('object');
@@ -291,8 +292,8 @@ describe('ConfigManager', function() {
 
             configManager.removeConfig(loggerMock);
 
-            expect(configManager.getConfig(loggerMock)).to.be.undefined();
-            expect(configManager.method.hasOwnProperty(methodMock)).to.be.false();
+            assert.isUndefined(configManager.getConfig(loggerMock));
+            assert.isFalse(configManager.method.hasOwnProperty(methodMock));
             expect(configManager.count()).to.equal(0);
         });
     });

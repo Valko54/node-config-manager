@@ -39,7 +39,7 @@ describe('FileManager', function() {
             }, error.BAD_PARAMETER);
         });
         it('should return a FileManager instance', function() {
-            expect(fileManager).not.to.be.null();
+            assert.isNotNull(fileManager);
 
             expect(fileManager.configDir).to.be.a('string');
             expect(fileManager.env).to.be.a('string');
@@ -62,7 +62,7 @@ describe('FileManager', function() {
             FileManager.__set__("fs", fsMock);
             FileManager.__set__("path", pathMock);
 
-            expect(fileManager.getFile('logger')).to.be.null();
+            assert.isNull(fileManager.getFile('logger'));
         });
         it('should return content of test/logger.json mock', function() {
             var loggerMock = 'logger',

@@ -1,6 +1,7 @@
 'use strict';
 
-var expect = require('chai').expect;
+var expect = require('chai').expect,
+    assert = require('chai').assert;
 
 var NODE_ENV = 'test',
     CONFIG_DIR = 'test/integration/config',
@@ -19,7 +20,7 @@ describe('FileManager - Integration Test', function() {
 
     describe('#prototype.getFile', function() {
         it('should return null', function() {
-            expect(fileManager.getFile('lambda')).to.be.null();
+            assert.isNull(fileManager.getFile('lambda'));
         });
         it('should return content of test/logger.json', function() {
             expect(fileManager.getFile('logger')).to.equal(require('./config/test/logger'));
