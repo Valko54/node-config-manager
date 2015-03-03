@@ -27,5 +27,8 @@ describe('FileManager - Integration Test', function() {
         it('should return content of /db.json', function() {
             expect(fileManager.getFile('db')).to.equal(require('./config/db'));
         });
+        it('should return content of /logger.json - justDefault', function() {
+            expect(fileManager.getFile('logger', true)).to.equal(require('./config/logger'));
+        });
     });
 });

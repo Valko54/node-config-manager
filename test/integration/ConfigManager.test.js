@@ -5,6 +5,7 @@ var expect = require('chai').expect;
 var NODE_ENV = 'test',
     CONFIG_DIR = 'test/integration/config',
     error = require('../../lib/error'),
+    uObject = require('../../lib/utils/object'),
     ConfigManager = require('../../lib/ConfigManager'),
     configManager = null;
 
@@ -33,7 +34,11 @@ describe('ConfigManager - Integration Test', function() {
         it('should add new config to store - env config file', function() {
             var loggerMock = 'logger',
                 methodMock = 'Logger',
-                file = require('./config/test/' + loggerMock);
+                file = require('./config/test/' + loggerMock),
+                defaultFile = require('./config/' + loggerMock);
+
+            uObject.extend(defaultFile, file);
+            file = defaultFile;
 
             //Init
             configManager.init({
