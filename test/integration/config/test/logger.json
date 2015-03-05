@@ -3,5 +3,10 @@
 		"level": "silly",
 		"colorize": "true",
 		"label": "category two"
-	}
+	},
+    "array": [
+      {"elt0":0},
+      {"elt1":1},
+      {"elt2":2}
+    ]
 }

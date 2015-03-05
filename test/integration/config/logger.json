@@ -1,10 +1,15 @@
 {
-	"console": {
-		"level": "silly",
-		"colorize": "true",
-		"label": "category one"
-	},
-	"file": {
-		"filename": "/path/to/some/file"
-	}
+  "console": {
+    "level": "silly",
+    "colorize": "true",
+    "label": "category one"
+  },
+  "file": {
+    "filename": "/path/to/some/file"
+  },
+  "array": [
+    {"3":"test"},
+    {"4":"test"},
+    {"5":"test"}
+  ]
 }
