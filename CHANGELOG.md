@@ -1,3 +1,8 @@
+1.0.3 / 2016-01-29
+==================
+
+  * Update dependencies (coveralls, chai, mocha, mocha-lcov-reporter, instanbul, jshint and rewire)
+
 1.0.2 / 2015-03-05
 ==================
 
