@@ -1,3 +1,8 @@
+1.0.4 / 2016-02-26
+==================
+
+  * Update dependencies (coveralls and mocha-lcov-reporter)
+
 1.0.3 / 2016-01-29
 ==================
 
