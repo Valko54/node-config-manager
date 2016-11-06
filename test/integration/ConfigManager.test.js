@@ -9,17 +9,17 @@ var NODE_ENV = 'test',
     ConfigManager = require('../../lib/ConfigManager'),
     configManager = null;
 
-describe('ConfigManager - Integration Test', function() {
-    beforeEach(function() {
+describe('ConfigManager - Integration Test', function () {
+    beforeEach(function () {
         configManager = new ConfigManager.ConfigManager();
     });
 
-    afterEach(function() {
+    afterEach(function () {
         configManager = null;
     });
 
-    describe('#prototype.addConfig', function() {
-        it('should return an error - No config file', function() {
+    describe('#prototype.addConfig', function () {
+        it('should return an error - No config file', function () {
             var lambdaMock = 'lambda';
 
             //Init
@@ -31,7 +31,7 @@ describe('ConfigManager - Integration Test', function() {
             //Add config
             expect(configManager.addConfig.bind(configManager, lambdaMock)).to.throw(error.CONFIG_NOT_EXISTS);
         });
-        it('should add new config to store - env config file', function() {
+        it('should add new config to store - env config file', function () {
             var loggerMock = 'logger',
                 methodMock = 'Logger',
                 file = require('./config/test/' + loggerMock),
@@ -53,7 +53,7 @@ describe('ConfigManager - Integration Test', function() {
             expect(configManager.method[methodMock]()).to.deep.equal(file);
             expect(configManager.count()).to.equal(1);
         });
-        it('should add new config to store - default config file', function() {
+        it('should add new config to store - default config file', function () {
             var dbMock = 'db',
                 methodMock = 'Db',
                 file = require('./config/' + dbMock);
@@ -71,7 +71,42 @@ describe('ConfigManager - Integration Test', function() {
             expect(configManager.method[methodMock]()).to.deep.equal(file);
             expect(configManager.count()).to.equal(1);
         });
-        it('should add new config to store - just env variables (camelCase)', function() {
+        it('should add new yaml config to store - default config file', function () {
+            var mailMock = 'mail',
+                methodMock = 'Mail',
+                fileMock = {
+                    host: 'smtp.gmail.com',
+                    port: 465,
+                    secure: true,
+                    auth: {
+                        user: 'user@gmail.com',
+                        pass: 'pass'
+                    },
+                    attachments: [
+                        {
+                            filename: 'fileName.txt',
+                            content: 'Hello world!'
+                        },
+                        {
+                            filename: 'fileName.yml'
+                        }
+                    ]
+                };
+
+            //Init
+            configManager.init({
+                configDir: CONFIG_DIR,
+                env: NODE_ENV
+            });
+
+            //Add config
+            configManager.addConfig(mailMock);
+
+            expect(configManager.store[mailMock]).to.deep.equal(fileMock);
+            expect(configManager.method[methodMock]()).to.deep.equal(fileMock);
+            expect(configManager.count()).to.equal(1);
+        });
+        it('should add new config to store - just env variables (camelCase)', function () {
             var otherMock = 'other',
                 methodMock = 'Other',
                 res = {
@@ -105,7 +140,7 @@ describe('ConfigManager - Integration Test', function() {
             expect(configManager.method[methodMock]()).to.deep.equal(res);
             expect(configManager.count()).to.equal(1);
         });
-        it('should add new config to store - just env variables (underscore_case)', function() {
+        it('should add new config to store - just env variables (underscore_case)', function () {
             var otherMock = 'other',
                 methodMock = 'Other',
                 res = {
