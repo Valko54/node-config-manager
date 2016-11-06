@@ -27,7 +27,7 @@ In a project, it's often necessary to have multiple environments (test, developm
 ```
 config/ 
     release/        (release env)
-        logger.json
+        logger.yaml
         db.json
     develop/        (develop env)
         logger.json

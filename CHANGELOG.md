@@ -1,3 +1,9 @@
+1.1.0 / 2016-11-06
+==================
+
+  * Configuration files can be written with YAML format
+  * Update dependencies (coveralls, mocha, istanbul, jshint and rewire)
+
 1.0.4 / 2016-02-26
 ==================
 
