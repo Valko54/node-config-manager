@@ -117,5 +117,14 @@ describe('Parser.Parameter', function() {
 
             expect(parserParameter.parse(string, false)).to.equal(null);
         });
+        it('should return correct type when parameter is typed-prefixed', function() {
+            expect(parserParameter.parse({test: 'ncm_boolean:true'})).to.deep.equal({test: true});
+            expect(parserParameter.parse({test: 'ncm_boolean:false'})).to.deep.equal({test: false});
+            expect(parserParameter.parse({test: 'ncm_string:true'})).to.deep.equal({test: 'true'});
+            expect(parserParameter.parse({test: 'ncm_number:17'})).to.deep.equal({test: 17});
+            expect(parserParameter.parse({test: 'ncm_number:0x11'})).to.deep.equal({test: 17});
+            expect(parserParameter.parse({test: 'ncm_string:0x11'})).to.deep.equal({test: '0x11'});
+            expect(parserParameter.parse({test: 'ncm_invalid:xx'})).to.deep.equal({test: 'ncm_invalid:xx'});
+        });
     });
 });

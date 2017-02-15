@@ -142,6 +142,15 @@ You can delete a configuration with the removeConfig method.
 cfgManager.removeConfig('app');
 ```
 
+### Type inference for environment variables
+
+Environment variables cannot be typed. ConfigManager will try to infere the type, for example `APP__HOST=127.0.0.1` will be parsed as a string and `APP_PORT=8080` as a number.  
+You can override this type inference with type prefixes in environment variables : `APP_PORT=ncm_string:8080` will return a string instead of number. The following type prefixes are supported: 
+
+* `ncm_string`
+* `ncm_boolean`
+* `ncm_number`
+
 ## Testing
 
 From the repo root:
