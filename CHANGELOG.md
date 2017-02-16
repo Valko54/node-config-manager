@@ -1,3 +1,9 @@
+1.2.0 / 2017-02-16
+==================
+
+  * Add support for type prefix for environment variables 
+  * Update dependencies (debug, js-yaml, coveralls and mocha)
+
 1.1.0 / 2016-11-06
 ==================
 
