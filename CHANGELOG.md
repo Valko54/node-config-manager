@@ -1,3 +1,9 @@
+2.0.0 / 2018-01-31
+==================
+
+  * NodeJS minimal version: 6.11.0 
+  * Update dependencies (debug, js-yaml, coveralls, chai, jshint, rewire, mocha and mocha-lcov-reporter)
+
 1.2.0 / 2017-02-16
 ==================
 
