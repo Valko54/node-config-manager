@@ -1,3 +1,8 @@
+2.1.0 / 2019-03-29
+==================
+
+  * Update dependencies (debug, js-yaml, chai, jshint, rewire, and coveralls)
+
 2.0.0 / 2018-01-31
 ==================
 
