@@ -1,3 +1,8 @@
+2.1.1 / 2020-04-15
+==================
+
+  * Update dependencies (mocha, js-yaml, jshint, rewire, and coveralls)
+
 2.1.0 / 2019-03-29
 ==================
 
